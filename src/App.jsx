@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Loading from './components/Loading'
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042']
@@ -48,7 +49,7 @@ export default function CRMStatistics() {
   }, [timeWindow])
 
   if (loading) {
-    return <div className="flex justify-center items-center h-screen">Loading...</div>
+    return <Loading/>;
   }
 
   return (
