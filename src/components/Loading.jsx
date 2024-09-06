@@ -10,7 +10,7 @@ const Loading = () => {
 
       
       <div className="grid grid-cols-1  md:grid-cols-3 grid-row-4 gap-6 mb-6">
-        <div className="bg-blue-500 p-4 rounded-lg shadow grid grid-rows-4 md:grid-rows-3">
+        <div className="bg-white p-4 rounded-lg shadow grid grid-rows-4 md:grid-rows-3">
           <div className="text-gray-500"></div>
           <div className="text-4xl font-bold"></div>
         </div>
