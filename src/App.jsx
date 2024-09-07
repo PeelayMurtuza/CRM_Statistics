@@ -4,32 +4,37 @@ import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, Toolti
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042']
 
-const dummyPieData = [
-  { name: 'New Leads', value: 400 },
-  { name: 'Qualified Leads', value: 300 },
-  { name: 'Proposals', value: 200 },
-  { name: 'Closed Deals', value: 100 },
-]
+// Function to generate random pie chart data
+const generateRandomPieData = () => {
+  return [
+    { name: 'New Leads', value: Math.floor(Math.random() * 500) },
+    { name: 'Qualified Leads', value: Math.floor(Math.random() * 500) },
+    { name: 'Proposals', value: Math.floor(Math.random() * 500) },
+    { name: 'Closed Deals', value: Math.floor(Math.random() * 500) },
+  ]
+}
 
-const dummyBarData = [
-  { name: 'Jan', value: 4000 },
-  { name: 'Feb', value: 3000 },
-  { name: 'Mar', value: 2000 },
-  { name: 'Apr', value: 2780 },
-  { name: 'May', value: 1890 },
-  { name: 'Jun', value: 2390 },
-]
+// Function to generate random bar chart data
+const generateRandomBarData = () => {
+  return [
+    { name: 'Jan', value: Math.floor(Math.random() * 5000) },
+    { name: 'Feb', value: Math.floor(Math.random() * 5000) },
+    { name: 'Mar', value: Math.floor(Math.random() * 5000) },
+    { name: 'Apr', value: Math.floor(Math.random() * 5000) },
+    { name: 'May', value: Math.floor(Math.random() * 5000) },
+    { name: 'Jun', value: Math.floor(Math.random() * 5000) },
+  ]
+}
 
 const fetchData = (timeWindow) => {
-  // Simulating API call
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve({
-        pieData: dummyPieData,
-        barData: dummyBarData,
-        totalCustomers: 1234,
-        totalRevenue: 567890,
-        conversionRate: 23,
+        pieData: generateRandomPieData(),
+        barData: generateRandomBarData(),
+        totalCustomers: Math.floor(Math.random() * 2000),
+        totalRevenue: Math.floor(Math.random() * 1000000),
+        conversionRate: Math.floor(Math.random() * 100),
       })
     }, 500)
   })
@@ -49,14 +54,14 @@ export default function CRMStatistics() {
   }, [timeWindow])
 
   if (loading) {
-    return <Loading/>;
+    return <Loading />
   }
 
   return (
     <div className="min-h-screen bg-gray-100 p-4 sm:p-6 lg:p-8">
       <div className="max-w-7xl mx-auto">
         <h1 className="text-3xl font-bold mb-6">CRM Statistics</h1>
-        
+
         <div className="mb-6">
           <select
             value={timeWindow}
@@ -107,7 +112,7 @@ export default function CRMStatistics() {
                   label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
                 >
                   {data.pieData.map((entry, index) => (
-                    <Cell key={`cell-${index}} fill={COLORS[index % COLORS.length]`} />
+                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                   ))}
                 </Pie>
                 <Tooltip />

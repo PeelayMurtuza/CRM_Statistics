@@ -2,7 +2,7 @@ import React from 'react';
 
 const Loading = () => {
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
+    <div className="min-h-screen bg-gray-100 p-6 mt-40 ">
       <div className="text-2xl font-bold mb-6"> </div>
       <div className="mb-6">
        <div className="px-4 py-2 border rounded-md w-20" ></div>
